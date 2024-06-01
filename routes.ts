@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const materiaController = require('./src/books/material.controller');
-const usuarioController = require('./src/books/user.controller');
+const materiaController = require('./src/blog/controllers/materia.controller');
+const usuarioController = require('./src/blog/controllers/user.controller');
 
 
 router.post('/materia', materiaController.createMateria);

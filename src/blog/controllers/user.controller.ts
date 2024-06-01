@@ -1,5 +1,5 @@
-import { Response, Request } from 'express'
-const usuarioService = require('./user.service');
+import  {Response, Request}  from 'express'
+const usuarioService = require('../services/user.service');
 
 
 exports.createUsuario = async (req:Request, res:Response) => {

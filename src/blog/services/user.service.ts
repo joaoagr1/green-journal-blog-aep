@@ -1,4 +1,4 @@
-const Usuario = require('./user.schema');
+const Usuario = require('../squemas/user.schema');
 
 exports.createUsuario = async (usuarioData:any) => {
   const usuario = new Usuario(usuarioData);

@@ -1,4 +1,4 @@
-const Materia = require('../books/materia.squema');
+const Materia = require('../squemas/materia.schema');
 
 exports.createMateria = async (materiaData:any) => {
   const materia = new Materia(materiaData);
