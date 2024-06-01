@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Nova Matéria</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles/nova-materia.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+        <nav class="container">
+            <a class="navbar-brand" href="#">Green News - Nova Matéria</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Adicionar Nova Matéria</h2>
+       
+            <div class="form-group">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="legenda">Legenda:</label>
+                <input type="text" id="legenda" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="conteudo">Conteúdo:</label>
+                <textarea id="conteudo" class="form-control" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="dataCriacao">Data de Criação:</label>
+                <input type="date" id="dataCriacao" class="form-control" required>
+            </div>
+            <button onclick="salvarMateria()" class="btn btn-primary">Adicionar Matéria</button>
+        
+    </div>
+
+    <!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="../scripts/nova-materia.js"></script>
+</body>
+</html>

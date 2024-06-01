@@ -1,3 +1,4 @@
+
 function login() {
 
     var email = document.getElementById('email').value;
@@ -12,8 +13,9 @@ function login() {
     })
     .then(response => {
         if (response.status === 200) {
-            window.location.href = './main.html';
-            console.log('Login bem-sucedido!');
+           //console.log(response.json());
+          //  window.location.href = './main.html';
+          return response.json();
         } else if (response.status === 404) {
             alert('Credenciais incorretas');
         } else if (response.status === 500) {
@@ -21,6 +23,11 @@ function login() {
         } else {
             alert('Algo deu errado. Tente novamente.');
         }
+    }).then(data => {
+        // Salva o objeto retornado no localStorage
+        localStorage.setItem('userData', JSON.stringify(data));
+        // Redireciona para a página main.html
+        window.location.href = './main.html';
     })
     .catch(error => {
         console.error('Erro na solicitação:', error);
@@ -63,3 +70,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     
 });
+
+
+function novaMateria() {
+    window.location.href = '/view/pages/nova-materia.html';
+}
+
+
+console.log(localStorage.getItem('userData'));
