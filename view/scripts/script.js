@@ -36,30 +36,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const materialList = document.getElementById('materialList');
 
     // Mock Data - Replace with actual data fetched from backend
-    const mockMaterials = [
-        { title: 'Material 1', content: 'Content 1', author: 'Author 1', date: '2024-06-01', subtitle: 'Subtitle 1', id: 1},
-        { title: 'Material 2', content: 'Content 2', author: 'Author 2', date: '2024-06-02', subtitle: 'Subtitle 2', id: 2},
-        { title: 'Material 3', content: 'Content 3', author: 'Author 3', date: '2024-06-03', subtitle: 'Subtitle 3', id: 3}
-    ]; 
+    
+    
+        fetch('http://localhost:3000/materia') 
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(material => {
+                    console.log(material);
+                    const li = document.createElement('li');
+                    li.className = 'list-group-item';
+                    li.innerHTML = `<h2>${material.titulo}</h2><p>${material.legenda} - ${material.autor.nome}</p>`;
+                    materialList.appendChild(li);
 
-    if (materialList) {
-        // Populate Material List on Dashboard
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        if (!isLoggedIn) {
-            window.location.href = 'index.html';
-        } else {
-            mockMaterials.forEach(material => {
-                const li = document.createElement('li');
+                    li.addEventListener('click', () => {
+                        console.log(`Você clicou em ${JSON.stringify(material)}`);
+                        localStorage.setItem('materia', JSON.stringify(material)); 
+                         window.location.href = '/view/pages/detail.html';
+                    });
+                    
 
-                li.className = 'list-group-item';
-                li.innerHTML = `<h2>${material.title}</h2><p>${material.author} - ${material.date}</p>`;
-
-                li.addEventListener('click', () => {
-                    console.log(material.id);
                 });
-                              
-                materialList.appendChild(li);
+            })
+            .catch(error => {
+                console.error('Erro ao obter a lista de materiais:', error);
+                
             });
-        }
-    }
+    
 });
