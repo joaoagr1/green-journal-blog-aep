@@ -1,9 +1,15 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Document } from 'mongoose';
 
-const UsuarioSchema = new Schema({
+export interface IUsuario extends Document {
+  nome: string;
+  email: string;
+  senha: string;
+}
+
+const UsuarioSchema = new Schema<IUsuario>({
   nome: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  senha: { type: String, required: true }
+  senha: { type: String, required: true },
 });
 
-module.exports = model('Usuario', UsuarioSchema);
+export const Usuario = model<IUsuario>('Usuario', UsuarioSchema);

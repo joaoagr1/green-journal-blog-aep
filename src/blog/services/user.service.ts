@@ -1,6 +1,7 @@
-const Usuario = require('../squemas/user.schema');
+import {Usuario, IUsuario}from '../squemas/user.schema';
 
-exports.createUsuario = async (usuarioData:any) => {
+
+exports.createUsuario = async (usuarioData:IUsuario) => {
   const usuario = new Usuario(usuarioData);
   return await usuario.save();
 };
@@ -19,4 +20,9 @@ exports.updateUsuario = async (id:string, usuarioData:any) => {
 
 exports.deleteUsuario = async (id:string) => {
   return await Usuario.findByIdAndDelete(id);
+};
+
+exports.loginUsuario = async (usuarioData:IUsuario) => {
+  console.log("usuarioa data: "+usuarioData.email + usuarioData.senha);
+  return await Usuario.findOne({email:usuarioData.email, senha:usuarioData.senha});
 };
