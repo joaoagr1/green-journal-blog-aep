@@ -49,7 +49,6 @@ exports.deleteUsuario = async (req: Request, res: Response) => {
 exports.loginUsuario = async (req: Request, res: Response) => {
   try {
     const usuario = await usuarioService.loginUsuario(req.body);
-    console.log(usuario);
     
     if (usuario == null) {
       return res.status(404).json({ error: "Usuario não encontrado" });

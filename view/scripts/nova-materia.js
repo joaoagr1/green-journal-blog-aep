@@ -1,4 +1,3 @@
-console.log(localStorage.getItem('userData'));
 
 const autor = document.getElementById('autor');
 const data = document.getElementById('dataCriacao');

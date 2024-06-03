@@ -24,3 +24,13 @@
   color: white;
   
 }
+
+#registerForm{
+  width: 50vh;
+}
+
+
+
+.btn{
+  border: none;
+}

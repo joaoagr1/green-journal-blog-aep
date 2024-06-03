@@ -23,6 +23,5 @@ exports.deleteUsuario = async (id:string) => {
 };
 
 exports.loginUsuario = async (usuarioData:IUsuario) => {
-  console.log("usuarioa data: "+usuarioData.email + usuarioData.senha);
   return await Usuario.findOne({email:usuarioData.email, senha:usuarioData.senha});
 };
