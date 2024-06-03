@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 function login() {
 
     var email = document.getElementById('email').value;
